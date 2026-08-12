@@ -1,0 +1,56 @@
+[
+  {
+    "subject": "Data Structures",
+    "subject_code": "CSE201",
+    "faculty": "Dr. Sharma",
+    "room": "KIDS 301",
+    "day": "MON",
+    "start_time": "09:00",
+    "end_time": "10:00"
+  },
+  {
+    "subject": "Operating Systems",
+    "subject_code": "CSE302",
+    "faculty": "Dr. Kumar",
+    "room": "KIDS 204",
+    "day": "MON",
+    "start_time": "10:00",
+    "end_time": "11:00"
+  },
+  {
+    "subject": "Machine Learning",
+    "subject_code": "CSE401",
+    "faculty": "Dr. Singh",
+    "room": "KIDS 402",
+    "day": "MON",
+    "start_time": "11:30",
+    "end_time": "12:30"
+  },
+  {
+    "subject": "Computer Networks",
+    "subject_code": "CSE305",
+    "faculty": "Dr. Das",
+    "room": "KIDS 105",
+    "day": "MON",
+    "start_time": "14:00",
+    "end_time": "15:00"
+  },
+  {
+    "subject": "Database Management",
+    "subject_code": "CSE204",
+    "faculty": "Dr. Roy",
+    "room": "KIDS 203",
+    "day": "TUE",
+    "start_time": "09:00",
+    "end_time": "10:00"
+  },
+  {
+    "subject": "Artificial Intelligence",
+    "subject_code": "CSE402",
+    "faculty": "Dr. Sen",
+    "room": "KIDS 401",
+    "day": "TUE",
+    "start_time": "10:00",
+    "end_time": "11:00"
+  }
+]
