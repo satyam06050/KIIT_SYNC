@@ -1,45 +1,68 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
-
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
+# ── Flutter / Dart / Pub ──────────────────────────────────────────────────────
 .dart_tool/
+.flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
 /build/
 /coverage/
+pubspec.lock
+**/doc/api/
 
-# Symbolication related
+# ── Android ───────────────────────────────────────────────────────────────────
+/android/app/debug/
+/android/app/profile/
+/android/app/release/
+/android/.gradle/
+/android/captures/
+/android/local.properties
+/android/key.properties
+*.jks
+*.keystore
+android/app/google-services.json
+
+# ── iOS / macOS ───────────────────────────────────────────────────────────────
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/ephemeral/
+**/ios/Pods/
+**/ios/.symlinks/
+**/macos/Flutter/ephemeral/
+**/macos/Pods/
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+GoogleService-Info.plist
+
+# ── Windows ───────────────────────────────────────────────────────────────────
+/windows/flutter/generated_plugin_registrant.cc
+/windows/flutter/generated_plugin_registrant.h
+/windows/flutter/generated_plugins.cmake
+
+# ── Web ───────────────────────────────────────────────────────────────────────
+/web/flutter_service_worker.js
+
+# ── Secrets / Environment ─────────────────────────────────────────────────────
+.env
+.env.*
+*.pem
+*.p12
+secrets.dart
+lib/secrets.dart
+lib/config/secrets.dart
+
+# ── IDE / Editor ──────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+*.swp
+.DS_Store
+
+# ── Logs / Misc ───────────────────────────────────────────────────────────────
+*.log
+*.class
+*.pyc
+.history/
+migrate_working_dir/
 app.*.symbols
-
-# Obfuscation related
 app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
