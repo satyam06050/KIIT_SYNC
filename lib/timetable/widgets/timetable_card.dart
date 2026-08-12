@@ -32,12 +32,12 @@ class TimetableCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppRes.tileColor,
           borderRadius: BorderRadius.circular(8),
-          border: isNow ? Border.all(color: const Color(0xFF4CAF50), width: 2) : null,
+          border: isNow ? Border.all(color: AppRes.accentGreen, width: 2) : null,
           boxShadow: [
             BoxShadow(
               color: isNow
-                  ? const Color(0xFF4CAF50).withValues(alpha: 0.3)
-                  : Colors.black.withValues(alpha: 0.3),
+                  ? AppRes.accentGreen.withValues(alpha: 0.3)
+                  : AppRes.black.withValues(alpha: 0.3),
               blurRadius: isNow ? 8 : 4,
               offset: const Offset(0, 2),
             ),
@@ -49,7 +49,7 @@ class TimetableCard extends StatelessWidget {
               Container(
                 width: 4,
                 decoration: const BoxDecoration(
-                  color: Color(0xFF4CAF50),
+                  color: AppRes.accentGreen,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
@@ -66,11 +66,7 @@ class TimetableCard extends StatelessWidget {
                       children: [
                         Expanded(
                           child: ShaderMask(
-                            shaderCallback: (bounds) => const LinearGradient(
-                              colors: [Color(0xFFFF7E4A), Color(0xFFFF5722)],
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                            ).createShader(bounds),
+                            shaderCallback: (bounds) => AppRes.textGradient.createShader(bounds),
                             child: Text(
                               item['subject_code'] ?? 'Unknown Subject',
                               style: AppRes.roboto.copyWith(
@@ -93,7 +89,7 @@ class TimetableCard extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF4CAF50),
+                          color: AppRes.accentGreen,
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(
@@ -109,7 +105,7 @@ class TimetableCard extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFFFB300),
+                          color: AppRes.accentAmber,
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(
@@ -125,7 +121,7 @@ class TimetableCard extends StatelessWidget {
                       SizedBox(height: AccessibilityUtils.getScaledSpacing(context, 4.0)),
                       Row(
                         children: [
-                          const Icon(Icons.location_on, size: 16, color: Colors.white70),
+                          const Icon(Icons.location_on, size: 16, color: AppRes.white70),
                           const SizedBox(width: 4),
                           Text(
                             'Room: ${item['room']}',

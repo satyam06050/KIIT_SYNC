@@ -31,7 +31,7 @@ class DaySelector extends GetView<TimetableController> {
                   color: isSelected ? AppRes.accentOrange : AppRes.tileColor,
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: isSelected ? AppRes.accentOrange : Colors.white10,
+                    color: isSelected ? AppRes.accentOrange : AppRes.white10,
                   ),
                 ),
                 child: Column(
@@ -40,14 +40,14 @@ class DaySelector extends GetView<TimetableController> {
                     Text(
                       day,
                       style: AppRes.tabLabel.copyWith(
-                        color: isSelected ? Colors.white : Colors.white70,
+                        color: isSelected ? AppRes.white : AppRes.white70,
                       ),
                     ),
                     const SizedBox(height: 5),
                     Text(
                       _getDate(index),
                       style: AppRes.tabDate.copyWith(
-                        color: isSelected ? Colors.white : Colors.white70,
+                        color: isSelected ? AppRes.white : AppRes.white70,
                       ),
                     ),
                   ],

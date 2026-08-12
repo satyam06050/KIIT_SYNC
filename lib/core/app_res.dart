@@ -17,6 +17,14 @@ class AppRes {
   static const Color accentOrange = Color(0xFFFF5722);
   static const Color accentOrangeLight = Color(0xFFFF7E4A);
 
+  static const Color accentGreen = Color(0xFF4CAF50);
+  static const Color accentAmber = Color(0xFFFFB300);
+  static const Color transparent = Colors.transparent;
+  static const Color black = Colors.black;
+  static const Color white70 = Color(0xB3FFFFFF);
+  static const Color white10 = Color(0x1AFFFFFF);
+  static const Color seedColor = Color(0xFF003366);
+
   // ─────────────────────────────────────────────
   // BACKGROUNDS
   // ─────────────────────────────────────────────

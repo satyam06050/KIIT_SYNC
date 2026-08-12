@@ -34,14 +34,14 @@ class TimetablePage extends GetView<TimetableController> {
 
   Widget _buildAppBar() {
     return AppBar(
-      backgroundColor: Colors.transparent,
-      foregroundColor: Colors.white,
+      backgroundColor: AppRes.transparent,
+      foregroundColor: AppRes.white,
       title: Text('KIIT SYNC', style: AppRes.appBarTitle),
       actions: [
         Obx(
           () => DropdownButton<String>(
             value: controller.selectedMode.value,
-            dropdownColor: Colors.black,
+            dropdownColor: AppRes.black,
             style: AppRes.dropdownText,
             underline: const SizedBox(),
             items: const [
@@ -140,7 +140,7 @@ class TimetablePage extends GetView<TimetableController> {
             onPressed: controller.showReminder,
             icon: const Icon(
               Icons.notifications_none,
-              color: Colors.white,
+              color: AppRes.white,
               size: 22,
             ),
           ),
