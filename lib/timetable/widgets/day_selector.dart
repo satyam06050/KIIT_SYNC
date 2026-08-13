@@ -7,7 +7,7 @@ import '../controllers/timetable_controller.dart';
 class DaySelector extends GetView<TimetableController> {
   const DaySelector({super.key});
 
-  static const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+  static const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class DaySelector extends GetView<TimetableController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      day,
+                      day.toUpperCase(),
                       style: AppRes.tabLabel.copyWith(
                         color: isSelected ? AppRes.white : AppRes.white70,
                       ),

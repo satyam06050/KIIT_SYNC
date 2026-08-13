@@ -88,13 +88,13 @@ class TimetablePage extends GetView<TimetableController> {
           children: [
             Text(
               'Effective From: ${controller.effectiveDate.value}',
-              style: AppRes.effectiveDate.copyWith(color: Colors.white),
+              style: AppRes.effectiveDate.copyWith(color: AppRes.white),
             ),
             const Spacer(),
             if (controller.section.value.isNotEmpty)
               Text(
                 'Section: ${controller.section.value}',
-                style: AppRes.effectiveDate.copyWith(color: Colors.white),
+                style: AppRes.effectiveDate.copyWith(color: AppRes.white),
               ),
           ],
         ),
@@ -110,7 +110,7 @@ class TimetablePage extends GetView<TimetableController> {
           Obx(
             () => Text(
               controller.todayLabel.value,
-              style: AppRes.todayLabel.copyWith(color: Colors.white),
+              style: AppRes.todayLabel.copyWith(color: AppRes.white),
             ),
           ),
 
@@ -174,7 +174,6 @@ class TimetablePage extends GetView<TimetableController> {
           return TimetableCard(
             item: {
               'subject_code': timetable.subjectCode,
-              'subject': timetable.subject,
               'faculty': timetable.faculty,
               'room': timetable.room,
               'start_time': '${timetable.startTime.hour.toString().padLeft(2, '0')}:${timetable.startTime.minute.toString().padLeft(2, '0')}',

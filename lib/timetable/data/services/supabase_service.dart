@@ -3,16 +3,19 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class SupabaseService {
   final SupabaseClient _supabase = Supabase.instance.client;
 
-  Future<Map<String, dynamic>> getStudent(int rollNo) async {
+  Future<Map<String, dynamic>?> getStudent(int rollNo) async {
     return await _supabase
         .from('student')
         .select('roll_no, section, batch, semester')
         .eq('roll_no', rollNo)
-        .single();
+        .maybeSingle();
   }
 
   Future<List<Map<String, dynamic>>> getTimetable(int rollNo) async {
     final student = await getStudent(rollNo);
+    if (student == null) {
+      throw StateError('No student found for roll number $rollNo');
+    }
 
     final data = await _supabase
         .from('timetable')

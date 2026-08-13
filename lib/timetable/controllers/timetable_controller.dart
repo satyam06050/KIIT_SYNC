@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 import '../models/timetable_model.dart';
@@ -20,17 +21,28 @@ class TimetableController extends GetxController {
 
   final todayClasses = <TimetableModel>[].obs;
 
-  static const _dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  static const _dayKeys  = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+  static const _dayNames = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+  static const _dayKeys = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   final selectedDay = ''.obs;
+
+  // TODO: replace with actual roll no from auth/prefs
+  final int rollNo = 2328120;
 
   @override
   void onInit() {
     super.onInit();
     final now = DateTime.now();
-    selectedDay.value   = _dayKeys[now.weekday - 1];
-    todayLabel.value    = _dayNames[now.weekday - 1];
+    selectedDay.value = _dayKeys[now.weekday - 1];
+    todayLabel.value = _dayNames[now.weekday - 1];
     effectiveDate.value = '${now.day}/${now.month}/${now.year}';
     loadTimetable();
   }
@@ -46,12 +58,35 @@ class TimetableController extends GetxController {
     try {
       isLoading.value = true;
       errorMessage.value = '';
+      final classes = await repository.getTimetableForDay(
+        rollNo,
+        selectedDay.value,
+      );
+      if (classes.isNotEmpty) {
+        todayClasses.assignAll(classes);
+        return;
+      }
 
-      final classes = await repository.getTimetableForDay(selectedDay.value);
+      final allClasses = await repository.getTimetable(rollNo);
+      if (allClasses.isEmpty) {
+        todayClasses.clear();
+        return;
+      }
 
-      todayClasses.assignAll(classes);
+      final fallbackDay = allClasses.first.day;
+      selectedDay.value = fallbackDay;
+      final dayIndex = _dayKeys.indexWhere(
+        (day) => day.toLowerCase() == fallbackDay.toLowerCase(),
+      );
+      if (dayIndex != -1) todayLabel.value = _dayNames[dayIndex];
+      todayClasses.assignAll(
+        allClasses
+            .where((item) => item.day.toLowerCase() == fallbackDay.toLowerCase())
+            .toList(),
+      );
     } catch (e) {
       errorMessage.value = 'Unable to load timetable';
+      debugPrint('[TIMETABLE ERROR] $e');
     } finally {
       isLoading.value = false;
     }
@@ -64,7 +99,6 @@ class TimetableController extends GetxController {
 
   bool isCurrentClass(TimetableModel timetable) {
     final now = DateTime.now();
-
     return now.isAfter(timetable.startTime) && now.isBefore(timetable.endTime);
   }
 
@@ -76,11 +110,7 @@ class TimetableController extends GetxController {
     return timetable.startTime.difference(DateTime.now()).inMinutes;
   }
 
-  void addClass() {
-    // Add custom class logic
-  }
+  void addClass() {}
 
-  void showReminder() {
-    // Reminder logic
-  }
+  void showReminder() {}
 }

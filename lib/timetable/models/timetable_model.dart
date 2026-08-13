@@ -1,13 +1,13 @@
 class TimetableModel {
-  final String subject;
+  final String day;
   final String subjectCode;
-  final String faculty;
+  final String? faculty;
   final String room;
   final DateTime startTime;
   final DateTime endTime;
 
   const TimetableModel({
-    required this.subject,
+    required this.day,
     required this.subjectCode,
     required this.faculty,
     required this.room,
@@ -25,10 +25,10 @@ class TimetableModel {
     }
 
     return TimetableModel(
-      subject: json['subject'],
-      subjectCode: json['subject_code'],
+      day: json['day']?.toString() ?? '',
+      subjectCode: json['subject_code'] ?? '',
       faculty: json['faculty'],
-      room: json['room'],
+      room: json['room'] ?? '',
       startTime: parseTime(json['start_time']),
       endTime: parseTime(json['end_time']),
     );
